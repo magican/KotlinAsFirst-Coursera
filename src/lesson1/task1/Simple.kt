@@ -1,21 +1,25 @@
 @file:Suppress("UNUSED_PARAMETER")
+
 package lesson1.task1
 
-import kotlin.math.*
+import kotlin.math.PI
+import kotlin.math.sqrt
 
 /**
  * Пример
  *
  * Вычисление квадрата целого числа
  */
-fun sqr(x: Int) = x * x
+fun sqr(x: Int): Int = x * x
 
 /**
  * Пример
  *
  * Вычисление квадрата вещественного числа
  */
-fun sqr(x: Double) = x * x
+fun sqr(x: Double): Double {
+    return x * x
+}
 
 /**
  * Пример
@@ -29,7 +33,11 @@ fun discriminant(a: Double, b: Double, c: Double) = sqr(b) - 4 * a * c
  *
  * Поиск одного из корней квадратного уравнения
  */
-fun quadraticEquationRoot(a: Double, b: Double, c: Double) =
+fun quadraticEquationRoot(
+        a: Double,
+        b: Double,
+        c: Double
+): Double =
         (-b + sqrt(discriminant(a, b, c))) / (2 * a)
 
 /**
@@ -50,6 +58,12 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
 fun main(args: Array<String>) {
     val x1x2 = quadraticRootProduct(1.0, 13.0, 42.0)
     println("Root product: $x1x2")
+
+    val result = sqr(7)
+    println("7 * 7 = $result")
+
+    val answer = quadraticEquationRoot(1.0, -3.0, 2.0)
+    println(answer)
 }
 
 /**
@@ -75,7 +89,7 @@ fun lengthInMeters(sagenes: Int, arshins: Int, vershoks: Int): Double = TODO()
  * Пользователь задает угол в градусах, минутах и секундах (например, 36 градусов 14 минут 35 секунд).
  * Вывести значение того же угла в радианах (например, 0.63256).
  */
-fun angleInRadian(deg: Int, min: Int, sec: Int): Double = TODO()
+fun angleInRadian(deg: Int, min: Int, sec: Int): Double = deg * PI / 180 + min * PI / 180 / 60 + sec * PI / 180 / 3600
 
 /**
  * Тривиальная
@@ -91,7 +105,7 @@ fun trackLength(x1: Double, y1: Double, x2: Double, y2: Double): Double = TODO()
  * Пользователь задает целое число, большее 100 (например, 3801).
  * Определить третью цифру справа в этом числе (в данном случае 8).
  */
-fun thirdDigit(number: Int): Int = TODO()
+fun thirdDigit(number: Int): Int = (number - (number/1000)*1000) % 1000 / 100
 
 /**
  * Простая
